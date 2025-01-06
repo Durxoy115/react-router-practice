@@ -13,7 +13,7 @@ const Service = () => {
                 this is service 3
                 this is service 4
             </li>
-            <div>
+            <div className='flex grid  grid-cols-3 m-4 '>
                 {
                     service.map(ser => <Ser
                     key= {ser.id}
