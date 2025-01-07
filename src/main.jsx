@@ -7,6 +7,7 @@ import About from './components/About/About';
 import Contact from './components/Contact/Contact';
 import Service from './components/Service/Service';
 import './index.css'; // Ensure Tailwind CSS is imported
+import UserDetails from './Details/UserDetails';
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,13 @@ const router = createBrowserRouter([
       },
       {
         path: 'service',
+        loader: () => fetch('https://jsonplaceholder.typicode.com/users'),
         element: <Service></Service>,
+      },
+      {
+        path: 'service/:id',
+        loader: ({params}) => fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`),
+        element: <UserDetails></UserDetails>,
       },
     ],
   },

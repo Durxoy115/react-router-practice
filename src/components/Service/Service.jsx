@@ -3,23 +3,15 @@ import { useLoaderData } from 'react-router-dom';
 import Ser from '../Ser/Ser';
 
 const Service = () => {
-    const service = useLoaderData()
+    const service = useLoaderData();
+
     return (
-        <div>
-            <h2>Our service: {service.length}</h2>
-            <li>
-                this is service 1
-                this is service 2
-                this is service 3
-                this is service 4
-            </li>
-            <div className='flex grid  grid-cols-3 m-4 '>
-                {
-                    service.map(ser => <Ser
-                    key= {ser.id}
-                    ser = {ser}
-                    ></Ser>)
-                }
+        <div className="bg-gray-100 p-6">
+            <h2 className="text-2xl font-bold text-center mb-4">Our Services: {service.length}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {service.map((ser) => (
+                    <Ser key={ser.id} ser={ser} />
+                ))}
             </div>
         </div>
     );
